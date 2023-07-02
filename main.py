@@ -79,6 +79,7 @@ URI = "https://world.openfoodfacts.org/api/v2/product/"
 
 # Barcode
 Barcode = BarcodeReader(image)
+print('\nProcessing...\n')
 
 # Combine URI and Barcode to get product information from API
 api_url = URI + str(Barcode)
@@ -146,22 +147,32 @@ for items in product["nutrient_levels"]:
 
 
 print("\nIngredients:")
-print(product["ingredients_text"])
+try:
+    print(product["ingredients_text"])
+except:
+    print("Unknown")
+    pass
 
 print("\nMore Information:")
-for tag in product["ingredients_analysis_tags"]:
-    print(tag.split(":")[1])
+try:
+    for tag in product["ingredients_analysis_tags"]:
+        print(tag.split(":")[1])
+except:
+    pass
 
-if product['nova_group'] == 4:
-    print(f"Nova group rating: {product['nova_group']} Ultra-processed food "
-          f"and drink products")
-elif product['nova_group'] == 3:
-    print(f"Nova group rating: {product['nova_group']} Processed foods")
-elif product['nova_group'] == 2:
-    print(f"Nova group rating: {product['nova_group']} Processed culinary "
-          f"ingredients")
-elif product['nova_group'] == 1:
-    print(f"Nova group rating: {product['nova_group']} Unprocessed or "
-          f"minimally processed foods")
-else:
-    print("Unknown")
+try:
+    if product['nova_group'] == 4:
+        print(f"Nova group rating: {product['nova_group']} Ultra-processed food "
+              f"and drink products")
+    elif product['nova_group'] == 3:
+        print(f"Nova group rating: {product['nova_group']} Processed foods")
+    elif product['nova_group'] == 2:
+        print(f"Nova group rating: {product['nova_group']} Processed culinary "
+              f"ingredients")
+    elif product['nova_group'] == 1:
+        print(f"Nova group rating: {product['nova_group']} Unprocessed or "
+              f"minimally processed foods")
+    else:
+        print("Unknown")
+except:
+    pass
