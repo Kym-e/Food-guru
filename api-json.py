@@ -1,6 +1,6 @@
 import requests
 import json
-import pprint
+
 
 # Base URI
 URI = "https://world.openfoodfacts.org/api/v2/product/"
