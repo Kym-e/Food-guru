@@ -1,4 +1,6 @@
 # imports
+import sys
+
 import cv2
 from pyzbar.pyzbar import decode
 import requests
@@ -40,7 +42,8 @@ def BarcodeReader(image):
 
     # If not detected then print the message
     if not detectedBarcodes:
-        print("Barcode Not Detected or your barcode is blank/corrupted!")
+        print("Barcode Not Detected! - Try again")
+        sys.exit()
     else:
 
         # Traverse through all the detected barcodes in image
