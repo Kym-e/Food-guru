@@ -44,7 +44,7 @@ if __name__ == "__main__":
     # Take the image from user
     # image = "image.jpg"
     image = "WhatsApp Image 2023-07-01 at 22.33.04.jpg"
-    # image = "barcode_image.jpg"
+    image = "barcode_image.jpg"
 
     # Read the barcode
     BarcodeReader(image)
